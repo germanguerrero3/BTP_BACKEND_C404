@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definitions Books'
+define service Zsd_BOOKS_LOG_C404_GMGP {
+  expose zc_books_log_c404_gmgp   as Books;
+  expose ZC_CLIENTS_LOG_C404_GMGP as clients;
+}

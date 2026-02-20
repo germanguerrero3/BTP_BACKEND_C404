@@ -2,11 +2,12 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Books'
 @Metadata.ignorePropagatedAnnotations: true
+@Metadata.allowExtensions: true
 define view entity zc_books_log_c404_gmgp
   as select from    ztb_libros_gmgp         as Books
     inner join      ztb_catego_gmgp         as Categ on Books.bi_categ = Categ.bi_categ
     left outer join ZC_CLINTS_LIBS_LOG_C404 as Sales on Books.id_libro = Sales.BookID
-  association [0..*] to zc_clients_log_gmgp_c404 as _Clients on $projection.BookID = _Clients.BookID
+  association [0..*] to ZC_CLIENTS_LOG_C404_GMGP as _Clients on $projection.BookID = _Clients.BookID
 {
   key Books.id_libro    as BookID,
       Books.titulo      as Tittle,

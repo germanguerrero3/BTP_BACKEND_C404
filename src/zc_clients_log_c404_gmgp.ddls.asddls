@@ -3,7 +3,7 @@
 @EndUserText.label: 'Clients'
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
-define view entity zc_clients_log_gmgp_c404
+define view entity ZC_CLIENTS_LOG_C404_GMGP
   as select from ztb_clientes_gm as Clients
   inner join ztb_clnts_lib_gm as RelCliLib on RelCliLib.id_cliente = Clients.id_cliente
 {
