@@ -24,7 +24,7 @@ CLASS zcl_insert_data_gmgp IMPLEMENTATION.
     DATA: lt_acc_categ TYPE TABLE OF ztb_acc_categ_gm,
           lt_catego    TYPE TABLE OF ztb_catego_gmgp,
           lt_clientes  TYPE TABLE OF ztb_clientes_gm,
-          lt_clnts_lib TYPE TABLE OF ztb_clnts_lib_sg,
+          lt_clnts_lib TYPE TABLE OF ztb_clnts_lib_gm,
           lt_libros    TYPE TABLE OF ztb_libros_gmgp.
 
 ******** TABLA1 ********
