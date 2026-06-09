@@ -11,7 +11,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_insert_data_gmgp IMPLEMENTATION.
+CLASS ZCL_INSERT_DATA_GMGP IMPLEMENTATION.
+
+
   METHOD if_oo_adt_classrun~main.
 
 *Draft fields
@@ -214,5 +216,4 @@ CLASS zcl_insert_data_gmgp IMPLEMENTATION.
 
 
   ENDMETHOD.
-
 ENDCLASS.

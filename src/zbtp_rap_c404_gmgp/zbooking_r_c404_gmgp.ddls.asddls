@@ -5,8 +5,8 @@
 define view entity zbooking_r_c404_gmgp as select from zbooking_c40_g_a
 
   association to parent ZTRAVEL_R_C404_gmgp as _Travel on $projection.TravelUUID = _Travel.TravelUUID
-//  composition [0..*] of zbksppl_r_c404          as _BookingSupplement
-//  
+  composition [0..*] of zbksppl_r_c404_GMGP as _BookingSupplement
+  
   association [1..1] to /DMO/I_Customer          as _Customer      on  $projection.CustomerID = _Customer.CustomerID
   association [1..1] to /DMO/I_Carrier           as _Carrier       on  $projection.AirlineID = _Carrier.AirlineID
   association [1..1] to /DMO/I_Connection        as _Connection    on  $projection.AirlineID    = _Connection.AirlineID
@@ -36,7 +36,7 @@ define view entity zbooking_r_c404_gmgp as select from zbooking_c40_g_a
       _Customer,
       _Carrier,
       _Connection,
-      _BookingStatus
-//      _BookingSupplement 
+      _BookingStatus,
+      _BookingSupplement 
     
 }
