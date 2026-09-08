@@ -20,8 +20,8 @@ CLASS zcl_insert_data_sales_c404 IMPLEMENTATION.
 *local_last_changed_at : abp_locinst_lastchange_tstmpl;
 *last_changed_at       : abp_lastchange_tstmpl;
 
-    DATA: lt_header TYPE TABLE OF zheader_gg,
-          lt_items  TYPE TABLE OF zitems_gg.
+    DATA: lt_header TYPE TABLE OF zheader_gg_a,
+          lt_items  TYPE TABLE OF zitems_gg_a.
     DATA: lv_uuid_x16_1 TYPE sysuuid_x16,
           lv_uuid_x16_2 TYPE sysuuid_x16,
           lv_uuid_x16_3 TYPE sysuuid_x16.
@@ -40,8 +40,8 @@ CLASS zcl_insert_data_sales_c404 IMPLEMENTATION.
 
 
     "Delete possible entries; insert new entries
-    DELETE FROM zheader_gg.
-    INSERT zheader_gg FROM TABLE @lt_header.
+    DELETE FROM zheader_gg_a.
+    INSERT zheader_gg_a FROM TABLE @lt_header.
 
     IF sy-subrc EQ 0.
       out->write( |Tabla header: { sy-dbcnt } registros insertados| ).
@@ -67,12 +67,12 @@ CLASS zcl_insert_data_sales_c404 IMPLEMENTATION.
     release_date = '20260831' discontinued_date = '20261231' price = '1600.00' currency_code = 'COP' height = '11'
      width = '21' depth = '31' quantity = '41' unit_of_measure = 'CM' )
     ( items_uuid =  lv_uuid_x16_2_1 parent_uuid = lv_uuid_x16_2 id = '002' items_id = '010' name = 'Articulo3' description = 'Descripcion_003'
-    release_date = '20260831' discontinued_date = '20261231' price = '1700.00' currency_code = 'COP' height = '20'
+    release_date = '20260831' discontinued_date = '20261231' price = '1700.00' currency_code = 'USD' height = '20'
      width = '30' depth = '40' quantity = '25' unit_of_measure = 'CM' ) ).
 
     "Delete possible entries; insert new entries
-    DELETE FROM zitems_gg.
-    INSERT zitems_gg FROM TABLE @lt_items.
+    DELETE FROM zitems_gg_a.
+*    INSERT zitems_gg_a FROM TABLE @lt_items.
 
     IF sy-subrc EQ 0.
       out->write( |Tabla items: { sy-dbcnt } registros insertados| ).
