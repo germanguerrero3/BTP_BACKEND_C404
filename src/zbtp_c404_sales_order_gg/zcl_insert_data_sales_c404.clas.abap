@@ -72,7 +72,7 @@ CLASS zcl_insert_data_sales_c404 IMPLEMENTATION.
 
     "Delete possible entries; insert new entries
     DELETE FROM zitems_gg_a.
-*    INSERT zitems_gg_a FROM TABLE @lt_items.
+    INSERT zitems_gg_a FROM TABLE @lt_items.
 
     IF sy-subrc EQ 0.
       out->write( |Tabla items: { sy-dbcnt } registros insertados| ).
