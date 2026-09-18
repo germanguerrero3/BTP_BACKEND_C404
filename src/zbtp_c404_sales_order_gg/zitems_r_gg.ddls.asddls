@@ -10,7 +10,6 @@ define view entity zitems_r_gg
   key items_uuid            as ItemsUUID,
       parent_uuid           as SalesUUID,
 
-
       id                    as Id,
       items_id              as ItemsId,
       name                  as Name,
@@ -30,11 +29,11 @@ define view entity zitems_r_gg
       @Semantics.quantity.unitOfMeasure: 'UnitOfMeasure'
       quantity              as Quantity,
 
-
       // Local ETAg field
       @Semantics.systemDateTime.localInstanceLastChangedAt: true
       local_last_changed_at as LocalLastChangedAt,
 
       _Header,
+      
       _Currency
 }

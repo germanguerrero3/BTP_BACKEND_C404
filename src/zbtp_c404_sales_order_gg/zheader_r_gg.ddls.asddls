@@ -16,7 +16,6 @@ define root view entity zheader_r_gg
       delivery_date         as DeliveryDate,
       order_status          as OrderStatus,
       image_url             as ImageUrl,
-      
 
       @Semantics.user.createdBy: true
       local_created_by      as LocalCreatedBy,
@@ -34,5 +33,5 @@ define root view entity zheader_r_gg
       last_changed_at       as LastChangedAt,
 
       //    _association_name // Make association public
-      _items       
+      _items 
 }
