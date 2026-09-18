@@ -1,0 +1,5 @@
+@EndUserText.label: 'Header Service Definition'
+define service Zsd_header_gg {
+  expose ZHEADER_c_GG as header;
+  expose ZITEMS_C_GG  as items;
+}

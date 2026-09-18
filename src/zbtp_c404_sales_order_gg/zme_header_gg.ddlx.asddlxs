@@ -1,0 +1,74 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName: 'Sale',
+                     typeNamePlural: 'Sales',
+                     title: { type: #STANDARD,
+                              value: 'ID' } },
+       presentationVariant: [{ sortOrder: [{ by: 'ID',
+                                             direction: #ASC }],
+                               visualizations: [{ type: #AS_LINEITEM }] }] }
+annotate entity ZHEADER_c_GG
+    with 
+{
+  @UI.facet: [{ id: 'Sales',
+                purpose: #STANDARD,
+                type: #IDENTIFICATION_REFERENCE,
+                label: 'Sales',
+                position: 10 },
+
+              { id: 'Items',
+                purpose: #STANDARD,
+                type: #LINEITEM_REFERENCE,
+                label: 'Items Sales',
+                position: 20,
+                targetElement: '_items' } ]
+  @UI.hidden: true
+  SalesUUID;
+//    element_name;
+
+  @UI: { lineItem: [{ position: 10,
+                     importance: #HIGH },
+
+                    { position: 10,
+                      importance: #HIGH,
+                      type: #FOR_ACTION,
+                      dataAction: 'acceptSales',
+                      label: 'Accept Travel' },
+
+                    { position: 20,
+                      importance: #HIGH,
+                      type: #FOR_ACTION,
+                      dataAction: 'rejectSales',
+                      label: 'Reject Travel' },
+
+                    { position: 30,
+                      importance: #HIGH,
+                      type: #FOR_ACTION,
+                      dataAction: 'deductDiscount',
+                      label: 'Discount',
+                      invocationGrouping: #CHANGE_SET }
+                  ],
+
+         selectionField: [{ position: 10 }],
+
+         identification: [{ position: 10, label: 'Sales ID' },
+
+                          { type: #FOR_ACTION,
+                            dataAction: 'acceptSales',
+                            label: 'Accept Sales',
+                            position: 10 },
+
+                          { type: #FOR_ACTION,
+                            dataAction: 'rejectSales',
+                            label: 'Reject Sales',
+                            position: 20 },
+
+                           { type: #FOR_ACTION,
+                            dataAction: 'deductDiscount',
+                            label: 'Discount',
+                            position: 30 }
+                         ]
+      }
+Id;
+
+    
+}
