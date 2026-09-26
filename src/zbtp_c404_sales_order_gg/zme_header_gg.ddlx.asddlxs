@@ -6,8 +6,7 @@
        presentationVariant: [{ sortOrder: [{ by: 'ID',
                                              direction: #ASC }],
                                visualizations: [{ type: #AS_LINEITEM }] }] }
-annotate entity ZHEADER_c_GG
-    with 
+annotate entity ZHEADER_c_GG with
 {
   @UI.facet: [{ id: 'Sales',
                 purpose: #STANDARD,
@@ -23,7 +22,7 @@ annotate entity ZHEADER_c_GG
                 targetElement: '_items' } ]
   @UI.hidden: true
   SalesUUID;
-//    element_name;
+  //    element_name;
 
   @UI: { lineItem: [{ position: 10,
                      importance: #HIGH },
@@ -32,25 +31,25 @@ annotate entity ZHEADER_c_GG
                       importance: #HIGH,
                       type: #FOR_ACTION,
                       dataAction: 'acceptSales',
-                      label: 'Accept Travel' },
+                      label: 'Accept Sales' },
 
                     { position: 20,
                       importance: #HIGH,
                       type: #FOR_ACTION,
                       dataAction: 'rejectSales',
-                      label: 'Reject Travel' },
+                      label: 'Reject Sales' },
 
                     { position: 30,
                       importance: #HIGH,
                       type: #FOR_ACTION,
                       dataAction: 'deductDiscount',
-                      label: 'Discount',
+                      label: 'Discountii',
                       invocationGrouping: #CHANGE_SET }
                   ],
 
          selectionField: [{ position: 10 }],
 
-         identification: [{ position: 10, label: 'Sales ID' },
+         identification: [{ position: 10, label: 'Sales ID-2' },
 
                           { type: #FOR_ACTION,
                             dataAction: 'acceptSales',
@@ -64,11 +63,20 @@ annotate entity ZHEADER_c_GG
 
                            { type: #FOR_ACTION,
                             dataAction: 'deductDiscount',
-                            label: 'Discount',
+                            label: 'Discountoo',
                             position: 30 }
                          ]
       }
-Id;
+  Id;
+  @UI: { lineItem: [{  position:  20, importance:  #HIGH}],
+    identification: [{ position: 20 }]
+    }
+  Email;
+  @UI: { lineItem: [{  position:  30, importance:  #HIGH}],
+    identification: [{ position: 30 }]
+    }
+    FirstName;
 
-    
+
+
 }
