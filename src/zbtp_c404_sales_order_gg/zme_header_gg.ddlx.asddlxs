@@ -69,14 +69,33 @@ annotate entity ZHEADER_c_GG with
       }
   Id;
   @UI: { lineItem: [{  position:  20, importance:  #HIGH}],
-    identification: [{ position: 20 }]
+         selectionField: [{ position: 20 }],
+         identification: [{ position: 20, label: 'Email-2' }]
     }
   Email;
   @UI: { lineItem: [{  position:  30, importance:  #HIGH}],
     identification: [{ position: 30 }]
     }
-    FirstName;
-
-
+  FirstName;
+  @UI: { lineItem: [{  position:  40, importance:  #HIGH}],
+    identification: [{ position: 40 }]
+    }
+  LastName;
+  @UI: { lineItem: [{  position:  50, importance:  #HIGH}],
+    identification: [{ position: 50 }]
+    }
+  Country;
+  @UI: { lineItem: [{  position:  60, importance:  #HIGH}],
+    identification: [{ position: 60 }]
+    }
+  Creaton;
+  @UI: { lineItem: [{  position:  70, importance:  #HIGH}],
+    identification: [{ position: 70 }]
+    }
+  DeliveryDate;
+   @UI: { lineItem: [{  position:  80, importance:  #HIGH}],
+    identification: [{ position: 80 }]
+    } 
+  OrderStatus;
 
 }
