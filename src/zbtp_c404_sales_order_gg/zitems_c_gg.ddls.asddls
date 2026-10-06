@@ -2,12 +2,16 @@
 @EndUserText.label: 'Items  Consumption query Entity'
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
+@Search.searchable: true
+@ObjectModel.semanticKey: [ 'ItemsId' ]
 define view entity ZITEMS_C_GG
   as projection on zitems_r_gg
 {
   key ItemsUUID,
       SalesUUID,
+      @Search.defaultSearchElement: true      
       Id,
+      @Search.defaultSearchElement: true      
       ItemsId,
       Name,
       Description,
