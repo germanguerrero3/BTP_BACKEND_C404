@@ -8,7 +8,7 @@ define view entity zitems_r_gg
   association [0..1] to I_Currency          as _Currency on $projection.CurrencyCode = _Currency.Currency
 {
   key items_uuid            as ItemsUUID,
-      parent_uuid           as SalesUUID,
+      sales_uuid            as SalesUUID,
 
       id                    as Id,
       items_id              as ItemsId,

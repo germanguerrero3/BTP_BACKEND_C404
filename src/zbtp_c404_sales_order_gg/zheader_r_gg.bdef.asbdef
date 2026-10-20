@@ -1,0 +1,102 @@
+managed;
+strict ( 2 );
+with draft;
+
+define behavior for zheader_r_gg alias Header
+implementation in class zbp_header_r_gg unique
+persistent table zheader_gg_a
+draft table zheader_gg_d
+lock master
+total etag LastChangedAt
+etag master LocalLastChangedAt
+authorization master ( instance, global )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  association _items { create ( features : instance, authorization : update ); with draft; }
+  field ( numbering : managed, readonly ) SalesUUID;
+  field ( readonly ) Id,
+  OrderStatus,
+  LocalCreatedAt,
+  LocalCreatedBy,
+  LocalLastChangedAt,
+  LocalLastChangedBy;
+
+  field ( mandatory ) Email, FirstName;
+  determination setIdNumber on save { create; }
+  determination setStatusToOpen on modify { create; }
+
+  action ( features : instance, authorization : update ) acceptSales result [1] $self;
+  action ( features : instance, authorization : update ) rejectSales result [1] $self;
+
+
+  draft action edit;
+  draft action activate optimized;
+  draft action discard;
+  draft action resume with additional implementation;
+
+
+  draft determine action prepare
+  {
+
+  }
+
+  mapping for zheader_gg_a
+    {
+      Salesuuid          = sales_uuid;
+      Id                 = id;
+      Email              = email;
+      FirstName          = first_name;
+      LastName           = last_name;
+      Country            = country;
+      CreatOn            = creaton;
+      DeliveryDate       = delivery_date;
+      Orderstatus        = order_status;
+      ImageUrl           = image_url;
+      LocalCreatedBy     = local_created_by;
+      LocalCreatedAt     = local_created_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChangedAt = local_last_changed_at;
+      LastChangedAt      = last_changed_at;
+    }
+
+}
+
+define behavior for zitems_r_gg alias items
+implementation in class zbp_zitems_r_gg unique
+persistent table zitems_gg_a
+draft table zitems_gg_d
+lock dependent by _Header
+authorization dependent by _Header
+etag master LocalLastChangedAt
+{
+  update;
+  delete;
+  field ( readonly ) SalesUUID, ItemsUUID;
+  association _Header;
+
+
+  mapping for zitems_gg_a
+    {
+      ItemsUUID          = items_uuid;
+      SalesUUID          = sales_uuid;
+
+      id                 = id;
+      ItemsID            = items_id;
+      Name               = name;
+      Description        = description;
+      ReleaseDate        = release_date;
+      DiscontinuedDate   = discontinued_date;
+      Price              = price;
+      CurrencyCode       = currency_code;
+      Height             = height;
+      Width              = width;
+      Depth              = depth;
+      Quantity           = quantity;
+      UnitOfMeasure      = unit_of_measure;
+      LocalLastChangedAt = local_last_changed_at;
+    }
+
+}
