@@ -74,15 +74,13 @@ etag master LocalLastChangedAt
 {
   update;
   delete;
+  association _Header { with draft; }
   field ( readonly ) SalesUUID, ItemsUUID;
-  association _Header;
-
 
   mapping for zitems_gg_a
     {
-      ItemsUUID          = items_uuid;
       SalesUUID          = sales_uuid;
-
+      ItemsUUID          = items_uuid;
       id                 = id;
       ItemsID            = items_id;
       Name               = name;
