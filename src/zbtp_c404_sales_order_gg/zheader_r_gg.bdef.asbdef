@@ -3,7 +3,7 @@ strict ( 2 );
 with draft;
 
 define behavior for zheader_r_gg alias Header
-implementation in class zbp_header_r_gg unique
+implementation in class zbp_header_r1_gg unique
 persistent table zheader_gg_a
 draft table zheader_gg_d
 lock master
@@ -65,7 +65,7 @@ authorization master ( instance, global )
 }
 
 define behavior for zitems_r_gg alias items
-implementation in class zbp_zitems_r_gg unique
+implementation in class zbp_zitems_r1_gg unique
 persistent table zitems_gg_a
 draft table zitems_gg_d
 lock dependent by _Header
@@ -75,7 +75,10 @@ etag master LocalLastChangedAt
   update;
   delete;
   association _Header { with draft; }
-  field ( readonly ) SalesUUID, ItemsUUID;
+  field ( readonly ) SalesUUID;
+  field ( numbering : managed, readonly ) ItemsUUID;
+  field ( mandatory ) Id;
+  determination setItemNumber on save { create; }
 
   mapping for zitems_gg_a
     {
