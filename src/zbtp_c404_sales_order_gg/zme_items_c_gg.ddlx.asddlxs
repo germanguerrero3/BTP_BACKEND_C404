@@ -57,9 +57,5 @@ annotate entity ZITEMS_C_GG
          identification: [{ position: 110 }] }       
       Quantity;
      
-//
-
-//
-  
     
 }

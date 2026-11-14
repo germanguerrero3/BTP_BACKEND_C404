@@ -1,0 +1,29 @@
+projection;
+strict ( 2 );
+use draft;
+
+define behavior for ZHEADER_c_GG alias Header
+{
+  use create;
+  use update;
+  use delete;
+
+  use action acceptSales;
+  use action rejectSales;
+
+  use action edit;
+  use action activate;
+  use action discard;
+  use action resume;
+  use action prepare;
+
+  use association _items { create; with draft; }
+}
+
+define behavior for ZITEMS_C_GG alias items
+{
+  use update;
+  use delete;
+
+  use association _Header { with draft; }
+}
